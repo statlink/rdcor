@@ -1,0 +1,59 @@
+\name{Permutation-based hypothesis testing for the rank distance correlation}
+\alias{rdcor.test}
+\title{
+Permutation-based hypothesis testing for the rank distance correlation
+}
+
+\description{
+Permutation-based hypothesis testing for the rank distance correlation.
+}
+
+\usage{
+rdcor.test(y, x, R = 499)
+}
+
+\arguments{
+\item{y}{
+A numerical vector.
+}
+\item{x}{
+A numerical vector or a numerical matrix.
+}
+\item{R}{
+The number of permutations to implement.
+}
+}
+
+\details{
+Permutation-based hypothesis testing between y and x or between y and each column of x is performed.
+}
+
+\value{
+If x is a vector a vector with the rank distance correlation and the permuation-based p-value.
+If x is a matrix, this returns a matrix with two columns: the rank distance correlation and the permutation-based p-value.
+}
+
+\references{
+Shi H., Drton M. and Han F. (2022). Distribution-free consistent independence tests via center-outward ranks and signs. Journal of the American Statistical Association, 117(537): 395--410.
+
+Zhang Q. (2025). On the connections between Chatterjee's correlation and rank distance correlation.
+Journal of Nonparametric Statistics, 1--18.
+}
+
+\author{
+Michail Tsagris.
+
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+}
+
+\seealso{
+\code{ \link{rdcor},  \link{rdcor.mat}
+}
+}
+
+\examples{
+y <- iris[, 1]
+x <- matrix( rnorm(150 * 10), ncol = 10 )
+rdcor.test(y, x)
+}
+

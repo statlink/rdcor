@@ -1,0 +1,8 @@
+#useDynLib(fsn, .registration = TRUE)
+
+importFrom("Rfast", rowsums)
+importFrom("Rfast2", Sample, Rank, colRanks)
+importFrom("dcov", dcor, mdcor)
+
+exportPattern("^[[:alpha:]]+")
+exportPattern("^[^\\.]")

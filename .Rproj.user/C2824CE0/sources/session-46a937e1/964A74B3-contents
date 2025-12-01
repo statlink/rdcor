@@ -1,0 +1,21 @@
+rdcor <- function(x, y, type = "V") {
+
+  a <- is.matrix(x)  ;  b <- is.matrix(y)
+  if ( !a & !b ) {
+    n <- length(x)
+    Rx <- Rfast::Rank(x) / n
+    Ry <- Rfast::Rank(y) / n
+    r <- dcov::dcor2d(Rx, Ry, type)
+  } else if ( !a  &  b ) {
+    n <- dim(y)[1]
+    Rx <- Rfast::Rank(x) / n
+    Ry <- Rfast::colRanks(y) / n
+    r <- dcov::mdcor(Rx, Ry, type)
+  } else if ( a  &  !b ) {
+    n <- dim(x)[1]
+    Rx <- Rfast::colRanks(x) / n
+    Ry <- Rfast::Rank(y) / n
+    r <- dcov::mdcor(Ry, Rx, type)
+  }
+
+}

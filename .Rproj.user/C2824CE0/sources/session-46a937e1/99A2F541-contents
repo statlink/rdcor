@@ -1,0 +1,59 @@
+\name{Rank distance correlation matrix}
+\alias{rdcor.mat}
+\title{
+Rank distance correlation matrix
+}
+
+\description{
+Rank distance correlation matrix.
+}
+
+\usage{
+rdcor.mat(x, B = 1)
+}
+
+\arguments{
+\item{x}{
+A numerical matrix.
+}
+\item{B}{
+The number of permutations to implement to compute the p-value. If B = 1, no p-value is returned.
+}
+}
+
+\details{
+The function computes the rank distance correlation matrix and optionally performs permutation-based hypothesis testing.
+}
+
+\value{
+A list including:
+\item{r}{
+The rank distance correlation matrix.
+}
+\item{pvalue}{
+A matrix with the associated p-values, if B>1, otherwise NULL.
+}
+}
+
+\references{
+Shi H., Drton M. and Han F. (2022). Distribution-free consistent independence tests via center-outward ranks and signs. Journal of the American Statistical Association, 117(537): 395--410.
+
+Zhang Q. (2025). On the connections between Chatterjee's correlation and rank distance correlation.
+Journal of Nonparametric Statistics, 1--18.
+
+\author{
+Michail Tsagris and Nikolaos Kontemeniotis .
+
+R implementation and documentation: Michail Tsagris \email{mtsagris@uoc.gr}.
+}
+
+\seealso{
+\code{ \link{pdcor}
+}
+}
+
+\examples{
+x <- as.matrix(iris[, 1:4])
+rdcor.mat(x)
+}
+

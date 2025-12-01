@@ -1,0 +1,13 @@
+Package: rdcor
+Type: Package
+Title: Rank Distance Correlation Coefficient
+Version: 1.0
+Date: 2025-12-01
+Authors@R: person("Michail", "Tsagris", role = c("aut", "cre"), email = "mtsagris@uoc.gr")
+Author: Michail Tsagris [aut, cre]
+Maintainer: Michail Tsagris <mtsagris@uoc.gr>
+Depends: R (>= 4.0)
+Imports: dcov, Rfast, Rfast2, stats
+Description: The rank distance correlation <doi:10.1080/01621459.2020.1782223> is computed. Included is a function to perform permutation based testing.  
+License: GPL (>= 2)
+

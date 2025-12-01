@@ -1,0 +1,12 @@
+pdcor <- function(x, y, z) {
+  if ( is.vector(x) ) {
+    a1 <- dcov::dcor(x, y, type = "U")
+    a2 <- dcov::dcor(x, z, type = "U")
+    a3 <- dcov::dcor(y, z, type = "U")
+    r <- up <- a1 - a2 * a3
+    down <- sqrt(1 - a2^2) * sqrt(1 - a3^2)
+    r <- up/down
+  } else r <- Rfast::pdcor(x, y, z)
+  r
+}
+

@@ -1,0 +1,21 @@
+mpdcor.test <- function(y, x, z, R = 500) {
+
+  n <- length(y)
+  r <- pdcor::mpdcor(y, x, z)
+  pr <- matrix( nrow = R, ncol = dim(x)[2] )
+
+  for ( i in 1:R ) {
+    id <- Rfast2::Sample.int(n, n)
+    pr[i, ] <- pdcor::mpdcor(y[id], x, z)
+  }
+
+  res <- cbind( r, (Rfast::rowsums(t(pr) - r > 0) + 1) / (R + 1), pchisq(1 + n * r, 1, lower.tail = FALSE) )
+  colnames(res) <- c("udcor", "permutation p-value", "asymptotic p-value")
+  res
+}
+
+
+
+
+
+
