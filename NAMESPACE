@@ -1,7 +1,7 @@
 #useDynLib(fsn, .registration = TRUE)
 
 importFrom("Rfast", Rank, colRanks, rowsums)
-importFrom("Rfast2", Sample)
+importFrom("rangen", Sample)
 importFrom("dcov", dcor, mdcor)
 
 exportPattern("^[[:alpha:]]+")
